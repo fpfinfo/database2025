@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simulador de Recomposição Salarial</title>
+
+    <!-- PWA manifest & theme -->
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#0078d4" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link rel="apple-touch-icon" href="icons/icon-192.png" />
+
+    <!-- html2canvas + jsPDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
+
+    <style>
+      /* Cole aqui todo o seu CSS inline original */
+    </style>
+  </head>
+
+  <body>
+    <div id="appContainer">
+      <!-- Seu conteúdo do simulador (HTML) aqui -->
+    </div>
+
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker
+            .register('/sw.js')
+            .then(reg => console.log('SW registrado:', reg.scope))
+            .catch(err => console.error('Falha ao registrar SW:', err));
+        });
+      }
+
+      // Lógica de atualização (ipcaMap, updateAll, etc.) aqui
+    </script>
+  </body>
+</html>
